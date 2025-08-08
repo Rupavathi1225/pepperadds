@@ -95,6 +95,21 @@ const Footer = () => {
         <p className="text-gray-500 text-sm">© 2025 PepperAds. All rights reserved.</p>
         <li><a href="/termandcon" className="text-gray-500 text-sm">TermsOfUse
             </a></li>
+            <div className="flex items-center justify-center gap-3 mt-2">
+  <img
+    src="/gdpr-badge.jpg"
+    alt="GDPR Compliant"
+    className="w-20 h-20 object-contain"
+  />
+  <img
+    src="/ccpa-badge.webp"
+    alt="CCPA Compliant"
+    className="w-20 h-20 object-contain"
+  />
+</div>
+
+
+
       </div>
     </footer>
   );

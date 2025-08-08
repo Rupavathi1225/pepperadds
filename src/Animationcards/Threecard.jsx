@@ -32,11 +32,15 @@ const Card = () => {
 
 const StyledWrapper = styled.div`
   .container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* allow wrapping */
+  gap: 20px;        /* add space between cards */
+  padding: 20px;
+}
+
 
   .glass {
     position: relative;
@@ -94,6 +98,33 @@ const StyledWrapper = styled.div`
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.05);
     padding: 0 5px;
   }
+    @media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .glass {
+    width: 90%;
+    height: auto;
+    transform: rotate(0deg) !important;
+  }
+
+  .glass img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .glass p {
+    font-size: 13px;
+  }
+
+  .glass::before {
+    font-size: 1rem;
+    height: 40px;
+  }
+}
+
 `;
 
 export default Card;

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
+import './BlurText.css'; // ✅ Make sure this file contains your responsive styles
 
 const buildKeyframes = (from, steps) => {
   const keys = new Set([
@@ -45,7 +46,6 @@ const BlurText = ({
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [threshold, rootMargin]);
 
   const defaultFrom = useMemo(
@@ -78,9 +78,10 @@ const BlurText = ({
   );
 
   return (
+    // ✅ Apply responsive class here
     <p
       ref={ref}
-      className={className}
+      className={`blur-text-wrapper ${className}`}
       style={{ display: 'flex', flexWrap: 'wrap' }}
     >
       {elements.map((segment, index) => {
@@ -91,7 +92,7 @@ const BlurText = ({
           times,
           delay: (index * delay) / 1000,
         };
-        (spanTransition).ease = easing;
+        spanTransition.ease = easing;
 
         return (
           <motion.span
